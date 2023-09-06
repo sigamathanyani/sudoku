@@ -6,10 +6,10 @@ import random
 pygame.init()
 
 class Graphic:
-    def __init__(self):
+    def __init__(self,sudoku_board):
         self.font = pygame.font.Font(FONT_NAME,FONT_SIZE)
         self.font2 = pygame.font.Font(FONT_NAME,20)
-        self.grid_numbers = [[random.randint(1,9) for col in range(9)] for row in range(9)]
+        self.grid_numbers = sudoku_board
 
     def draw_cell(self,win,xS,yS):
         for row in range(9):
@@ -17,7 +17,7 @@ class Graphic:
                 x = col * (CELL_SIZE + GAP)
                 y = row * (CELL_SIZE + GAP)
                 pygame.draw.rect(win,DARK_GRAY,(xS+x,yS+y,CELL_SIZE,CELL_SIZE),1)
-                #pygame.Rect((xS+x,yS+y),(CELL_SIZE,CELL_SIZE))
+                
                 if row % 3 ==0:
                     pygame.draw.line(win,BLACK,(xS+x,yS+y),(xS+x+CELL_SIZE,yS+y),BOARDER_THICK)
                 if row == 8:
@@ -29,10 +29,11 @@ class Graphic:
                     pygame.draw.line(win,BLACK,(xS+x+CELL_SIZE,yS+y),(xS+x+CELL_SIZE,yS+y+CELL_SIZE),BOARDER_THICK)
 
                 number_text = self.font2.render(str(self.grid_numbers[col][row]), True, BLACK)
+
                 text_rect = number_text.get_rect(center=(x + (CELL_SIZE//2) + CELL_SIZE + GAP + BOARDER_THICK, y + (CELL_SIZE//2)+CELL_SIZE-BOARDER_THICK-GAP-CELL_NUMBER))
                 win.blit(number_text, text_rect)
 
-
+        
     def draw_button(self,win,xS,yS):
         num = 0
         for row in range(3):
