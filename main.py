@@ -52,9 +52,9 @@ def main():
             pressed_rect = pygame.Rect(x,y,CELL_SIZE,CELL_SIZE)
             pygame.draw.rect(screen,(0,255,0),pressed_rect)
             
-            number_text = graphic.font2.render(str(graphic.grid_numbers[pressed_cords[0]][pressed_cords[1]]), True, BLACK)
-            text_rect = number_text.get_rect(center=(x + (CELL_SIZE//3)  + GAP + BOARDER_THICK, y + (CELL_SIZE//2)))
-            screen.blit(number_text, text_rect)
+            #number_text = graphic.font2.render(str(graphic.grid_numbers[pressed_cords[0]][pressed_cords[1]]), True, BLACK)
+            #text_rect = number_text.get_rect(center=(x + (CELL_SIZE//3)  + GAP + BOARDER_THICK, y + (CELL_SIZE//2)))
+            #screen.blit(number_text, text_rect)
             
             
         pygame.display.update()

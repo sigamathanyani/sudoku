@@ -28,7 +28,8 @@ class Graphic:
                 if col == 8:
                     pygame.draw.line(win,BLACK,(xS+x+CELL_SIZE,yS+y),(xS+x+CELL_SIZE,yS+y+CELL_SIZE),BOARDER_THICK)
 
-                number_text = self.font2.render(str(self.grid_numbers[col][row]), True, BLACK)
+                number_text = self.font2.render(str(self.grid_numbers[row][col]) , True, BLACK)
+                #number_text = self.font2.render(str(self.grid_numbers[col][row]) if self.grid_numbers[col][row] else "", True, BLACK)
 
                 text_rect = number_text.get_rect(center=(x + (CELL_SIZE//2) + CELL_SIZE + GAP + BOARDER_THICK, y + (CELL_SIZE//2)+CELL_SIZE-BOARDER_THICK-GAP-CELL_NUMBER))
                 win.blit(number_text, text_rect)
